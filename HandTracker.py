@@ -129,7 +129,7 @@ class CornerPoints ():
 
 # Hand Detector Module
 class HandDetector ():
-    def __init__(self, mode:bool = False, MaxHands: int = 2, complexity: int = 1, detectconf: float = 0.5, trackconf: float = 0.5, linethikness: int = 2, filled = cv.FILLED, radius: int = 5) -> None:
+    def __init__(self, mode:bool = False, MaxHands: int = 2, complexity: int = 1, detectconf: float = 0.5, trackconf: float = 0.5, linethikness: int = 2, filled = cv.FILLED, radius: int = 5, linecolor: tuple [int, int, int] = (52, 255, 48)) -> None:
         """
         Initialises the hand detector.
         """
@@ -142,6 +142,7 @@ class HandDetector ():
         self.linethikness = linethikness
         self.filled = filled
         self.radius = radius
+        self.linecolor = linecolor
 
         self.hands = mphands.Hands (self.mode, self.MaxHands, self.complexity, self.detectconf, self.trackconf)
 
@@ -158,14 +159,52 @@ class HandDetector ():
         if self.results.multi_hand_landmarks != None:
             inf = True
 
-            for handlms in self.results.multi_hand_landmarks:
-                if draw:
-                    mpdraw.draw_landmarks (image, handlms, mphands.HAND_CONNECTIONS, col = (52, 255, 48))
+            lmloc, hbox = self.FindLocation (image, hbox = False)
+
+            # Palm
+            cv.line (image, lmloc [0], lmloc [5], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [0], lmloc [9], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [0], lmloc [13], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [0], lmloc [17], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [5], lmloc [9], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [9], lmloc [13], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [13], lmloc [17], self.linecolor, self.linethikness)
+
+            # Thumb
+            cv.line (image, lmloc [0], lmloc [1], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [1], lmloc [2], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [2], lmloc [3], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [3], lmloc [4], self.linecolor, self.linethikness)
+
+            # Index finger
+            cv.line (image, lmloc [5], lmloc [6], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [6], lmloc [7], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [7], lmloc [8], self.linecolor, self.linethikness)
+
+            # Index finger
+            cv.line (image, lmloc [9], lmloc [10], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [10], lmloc [11], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [11], lmloc [12], self.linecolor, self.linethikness)
+
+            # Index finger
+            cv.line (image, lmloc [13], lmloc [14], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [14], lmloc [15], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [15], lmloc [16], self.linecolor, self.linethikness)
+
+            # Index finger
+            cv.line (image, lmloc [17], lmloc [18], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [18], lmloc [19], self.linecolor, self.linethikness)
+            cv.line (image, lmloc [19], lmloc [20], self.linecolor, self.linethikness)
+
+            # Landmarks
+            for i in range (21):
+                cv.circle (image, lmloc [i], 4, (0, 0, 255), self.filled)
+                cv.circle (image, lmloc [i], 6, (255, 255, 255), 1)
 
         return image, inf
 
     # Find location of hand landmarks
-    def FindLocation (self, image: np.ndarray, Hands = "one", hbox: bool = True, col: tuple [int, int, int] = (52, 255, 48)) -> tuple [dict [int, tuple [int, int]], dict [str, tuple [int, int]]]:
+    def FindLocation (self, image: np.ndarray, Hands = "one", hbox: bool = True) -> tuple [dict [int, tuple [int, int]], dict [str, tuple [int, int]]]:
         """
         Finds the location of the hand and the hand landmarks.
         """
@@ -214,7 +253,7 @@ class HandDetector ():
 
         # Making the box
         if hbox:
-            cv.rectangle (image, (handloc [CornerPoints.Top_Left_Corner][0], handloc [CornerPoints.Top_Left_Corner][1]), (handloc [CornerPoints.Bottom_Right_Corner][0], handloc [CornerPoints.Bottom_Right_Corner][1]), col, self.linethikness)
+            cv.rectangle (image, (handloc [CornerPoints.Top_Left_Corner][0], handloc [CornerPoints.Top_Left_Corner][1]), (handloc [CornerPoints.Bottom_Right_Corner][0], handloc [CornerPoints.Bottom_Right_Corner][1]), self.linecolor, self.linethikness)
 
         return self.lmloc, handloc
 
