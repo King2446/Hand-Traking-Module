@@ -47,8 +47,8 @@ Hand Landmarks
 --------------
 ![Hand Landmarks](https://user-images.githubusercontent.com/78896721/151704786-dce200a9-30f0-4b12-ae59-a061e60a833a.jpg)
 
-Acknowedgement
---------------
+Acknowledgement
+---------------
 For further information about any module, please see for the docs provided in each of the modules.
 
 Thank You 🙂
