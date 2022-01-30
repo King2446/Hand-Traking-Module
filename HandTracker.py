@@ -109,12 +109,6 @@ class HandLandmark ():
     DIPs = [3, 7, 11, 15, 19]
     TIPs = [4, 8, 12, 16, 20]
 
-    def showhlm () -> None:
-        picname = 'Hand Landmarks.jpg'
-        pic = cv.imread (picname)
-
-        cv.imshow (picname.split ('.') [0], pic)
-
 
 # Ways to flip an image
 class CVFlipCodes ():
