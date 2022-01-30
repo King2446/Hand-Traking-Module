@@ -43,6 +43,10 @@ Other Uses
   4. It can provide all the corner point names used in this module, which is stored in `CornerPoints`.
   5. It can put text at any given coordinate on the image screen with a background, with the help of `PutText` function.
 
+Hand Landmarks
+--------------
+
+
 For further information about any module, please see for the docs provided in each of the modules.
 
 Thank You 🙂
