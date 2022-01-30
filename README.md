@@ -45,7 +45,7 @@ Other Uses
 
 Hand Landmarks
 --------------
-![Hand Landmarks](https://user-images.githubusercontent.com/78896721/151704702-81053325-adcf-48a9-af60-32091245a9f5.jpg)
+![Hand Landmarks](https://user-images.githubusercontent.com/78896721/151704786-dce200a9-30f0-4b12-ae59-a061e60a833a.jpg)
 
 Acknowedgement
 --------------
