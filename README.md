@@ -12,7 +12,7 @@ Uses:
   4. To find if a finger is up or not.
   5. Can create a rectangle for the best hand detection zone.
 
-Functions and theris least requirements:
+Functions and their least requirements:
   1. HandDetector.FindHands:
       `Requires` image (with atleast one hand);
       `Returns` an image with hand landmarks drawn on it
