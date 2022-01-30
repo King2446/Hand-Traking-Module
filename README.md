@@ -45,8 +45,10 @@ Other Uses
 
 Hand Landmarks
 --------------
+![Hand Landmarks](https://user-images.githubusercontent.com/78896721/151704702-81053325-adcf-48a9-af60-32091245a9f5.jpg)
 
-
+Acknowedgement
+--------------
 For further information about any module, please see for the docs provided in each of the modules.
 
 Thank You 🙂
