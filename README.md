@@ -1,5 +1,6 @@
 HandTracker or HandTrakingModule
 ================================
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=srijan-76448.Hand-Traking-Module)
 
 It is a simple module to detect hands and do simple projects with hand recognition and machine learning.
 
